@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
+
 const Pagination = props => {
   const { itemsCount, pageSize, onPageChange, currentPage } = props;
 
@@ -16,13 +17,13 @@ const Pagination = props => {
             key={page}
             className={page === currentPage ? "page-item active" : "page-item"}
           >
-            <a
+            <button
               className="page-link"
               onClick={() => onPageChange(page)}
               style={{ cursor: "pointer" }}
             >
               {page}
-            </a>
+            </button>
           </li>
         ))}
       </ul>

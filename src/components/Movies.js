@@ -28,7 +28,7 @@ class Movies extends React.Component {
     });
     this.setState({ movies });
   };
-
+  // todo
   handleLike = movie => {
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
