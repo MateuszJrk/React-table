@@ -64,6 +64,83 @@ const movies = [
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 7,
     dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471822",
+    title: "test 1",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471823",
+    title: "test 2",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471824",
+    title: "test 3",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471825",
+    title: "test 4",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471826",
+    title: "test 5",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471827",
+    title: "test 6",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471828",
+    title: "test 7",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471829",
+    title: "test 8",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd4718220",
+    title: "test 9",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd4718221",
+    title: "test 10",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd4718222",
+    title: "test 11",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 7,
+    dailyRentalRate: 3.5
   }
 ];
 

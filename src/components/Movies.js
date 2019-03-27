@@ -49,6 +49,16 @@ class Movies extends React.Component {
     this.setState({ sortColumn });
   };
 
+  handleNextPage = currPage => {
+    console.log(currPage - 1, this.state.currentPage - 1);
+    // if (this.state.currentPage === )
+    this.setState({ currentPage: currPage + 1 });
+  };
+
+  handlePrevPage = currPage => {
+    this.setState({ currentPage: currPage - 1 });
+  };
+
   getPageData = () => {
     const {
       pageSize,
@@ -97,6 +107,8 @@ class Movies extends React.Component {
             onSort={this.handleSort}
           />
           <Pagination
+            nextPage={this.handleNextPage}
+            prevPage={this.handlePrevPage}
             itemsCount={totalCount}
             pageSize={pageSize}
             currentPage={currentPage}
