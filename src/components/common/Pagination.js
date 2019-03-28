@@ -26,7 +26,7 @@ const Pagination = props => {
         >
           <a
             className="page-link "
-            href="# "
+            href="#/"
             aria-label="Previous"
             onClick={() => prevPage(currentPage)}
           >

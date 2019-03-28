@@ -28,7 +28,7 @@ class Movies extends React.Component {
     });
     this.setState({ movies });
   };
-  // todo
+  // TODO: COMMENTS
   handleLike = movie => {
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
@@ -48,10 +48,8 @@ class Movies extends React.Component {
   handleSort = sortColumn => {
     this.setState({ sortColumn });
   };
-
+  // FIXME: CHANGE TO ONE FUNCTION
   handleNextPage = currPage => {
-    console.log(currPage - 1, this.state.currentPage - 1);
-    // if (this.state.currentPage === )
     this.setState({ currentPage: currPage + 1 });
   };
 
