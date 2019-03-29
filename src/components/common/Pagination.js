@@ -12,10 +12,10 @@ const Pagination = props => {
     prevPage
   } = props;
 
-  const pagesCount = Math.ceil(itemsCount / pageSize);
+  const pagesCount = Math.ceil(itemsCount / pageSize); //calculate how many pages
   if (pagesCount === 1) return null;
-  const pages = _.range(1, pagesCount + 1);
-
+  const pages = _.range(1, pagesCount + 1); //array of page numbers
+  //TODO: which one should I use, a or button
   return (
     <nav>
       <ul className="pagination">

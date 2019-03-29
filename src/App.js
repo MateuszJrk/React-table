@@ -11,8 +11,6 @@ import Filters from "./components/Filters";
 import DatePicker from "./components/DatePicker";
 import notFound from "./components/NotFound";
 
-import "./App.css";
-
 class App extends Component {
   render() {
     return (
