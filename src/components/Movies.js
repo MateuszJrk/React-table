@@ -15,7 +15,8 @@ class Movies extends React.Component {
     pageSize: 4,
     currentPage: 1,
     sortColumn: { path: "title", order: "asc" },
-    search: ""
+    search: "",
+    selectGenre: null
   };
 
   componentDidMount() {
@@ -44,7 +45,7 @@ class Movies extends React.Component {
   };
 
   handleGenreSelect = genre => {
-    this.setState({ selectedGenre: genre, currentPage: 1 });
+    this.setState({ selectedGenre: genre, search: "", currentPage: 1 });
   };
 
   handleSort = sortColumn => {
@@ -59,8 +60,8 @@ class Movies extends React.Component {
     this.setState({ currentPage: currPage - 1 });
   };
 
-  handleSearch = e => {
-    this.setState({ search: e.target.value });
+  handleSearch = query => {
+    this.setState({ search: query, selectedGenre: null, currentPage: 1 });
   };
 
   getPageData = () => {
@@ -73,20 +74,20 @@ class Movies extends React.Component {
       search
     } = this.state;
 
-    const filtered =
-      selectedGenre && selectedGenre._id // All genres don't have an _id
-        ? allMovies.filter(m => m.genre._id === selectedGenre._id)
-        : allMovies;
+    let filtered = allMovies;
+    if (search)
+      filtered = allMovies.filter(m =>
+        m.title.toLowerCase().includes(search.toLowerCase())
+      );
+    else if (selectedGenre && selectedGenre._id)
+      // All genres don't have an _id
+      filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
-    const searchFilter = search
-      ? sorted.filter(m => m.title.includes(search))
-      : allMovies;
+    const movies = paginate(sorted, currentPage, pageSize);
 
-    const movies = paginate(searchFilter, currentPage, pageSize);
-
-    return { totalCount: test.length, data: movies, filtered, test };
+    return { totalCount: sorted.length, data: movies };
   };
 
   render() {

@@ -1,16 +1,14 @@
 import React from "react";
 
-const Search = props => {
-  const { onChange, value } = props;
-
+const Search = ({ value, onChange }) => {
   return (
     <input
       type="text"
-      name="movieTitle"
-      placeholder="Search"
-      style={{ marginBottom: "20px", width: "50%" }}
-      onChange={onChange}
+      name="query"
+      className="form-control my-3"
+      placeholder="Search..."
       value={value}
+      onChange={e => onChange(e.currentTarget.value)}
     />
   );
 };
