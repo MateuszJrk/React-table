@@ -47,6 +47,9 @@ class Movies extends React.Component {
   handleGenreSelect = genre => {
     this.setState({ selectedGenre: genre, search: "", currentPage: 1 });
   };
+  handleSearch = query => {
+    this.setState({ search: query, selectedGenre: null, currentPage: 1 });
+  };
 
   handleSort = sortColumn => {
     this.setState({ sortColumn });
@@ -58,10 +61,6 @@ class Movies extends React.Component {
 
   handlePrevPage = currPage => {
     this.setState({ currentPage: currPage - 1 });
-  };
-
-  handleSearch = query => {
-    this.setState({ search: query, selectedGenre: null, currentPage: 1 });
   };
 
   getPageData = () => {

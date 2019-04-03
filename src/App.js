@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-
 import Sidebar from "./components/layout/Sidebar";
-
+import MovieForm from "./components/common/MovieFrom";
 import Movies from "./components/Movies";
 import ThemeSettings from "./components/ThemeSettings";
 import Dashboard from "./components/Dashboard";
@@ -21,6 +20,7 @@ class App extends Component {
         <div className="col">
           <main className="container">
             <Switch>
+              <Route path="/movies/:id" component={MovieForm} />
               <Route path="/movies" component={Movies} />
               <Route path="/settings" component={ThemeSettings} />
               <Route path="/dashboard" component={Dashboard} />
