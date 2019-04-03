@@ -9,6 +9,7 @@ import Catalogs from "./components/Catalogs";
 import Filters from "./components/Filters";
 import DatePicker from "./components/DatePicker";
 import notFound from "./components/NotFound";
+import LoginForm from "./components/common/LoginForm";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
         <div className="col">
           <main className="container">
             <Switch>
+              <Route path="/login" component={LoginForm} />
               <Route path="/movies/:id" component={MovieForm} />
               <Route path="/movies" component={Movies} />
               <Route path="/settings" component={ThemeSettings} />

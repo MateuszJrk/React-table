@@ -41,6 +41,12 @@ const SideBar = () => {
             <span> Date Picker</span>
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/login" className="nav-link">
+            <i className="fas fa-sign-in-alt" />
+            <span> Login</span>
+          </Link>
+        </li>
       </ul>
     </div>
   );
