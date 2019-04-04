@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ name, label, error, ...rest }) => {
+const Input = ({ name, label, error, ...rest /*getting all other data */ }) => {
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>

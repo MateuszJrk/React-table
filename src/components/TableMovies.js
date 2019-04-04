@@ -36,7 +36,7 @@ class TableMovies extends Component {
     const { movies, onSort, sortColumn } = this.props;
 
     return (
-      <Table
+      <Table // reusable table
         columns={this.columns}
         data={movies}
         sortColumn={sortColumn}

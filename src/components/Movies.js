@@ -121,10 +121,10 @@ class Movies extends React.Component {
           <Pagination
             nextPage={this.handleNextPage}
             prevPage={this.handlePrevPage}
+            onPageChange={this.handlePageChange}
             itemsCount={totalCount}
             pageSize={pageSize}
             currentPage={currentPage}
-            onPageChange={this.handlePageChange}
           />
         </div>
       </div>
