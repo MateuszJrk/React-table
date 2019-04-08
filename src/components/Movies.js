@@ -3,6 +3,8 @@ import TableMovies from "./TableMovies";
 import Pagination from "./common/Pagination";
 import ListGroup from "./common/ListGroup";
 import Search from "./common/Search";
+import Modal from "./modal/Modal";
+import Poster from "./modal/Poster";
 import { getMovies } from "../services/fakeMovieService";
 import { paginate } from "../utils/paginate";
 import { getGenres } from "../services/fakeGenreService";
@@ -12,11 +14,12 @@ class Movies extends React.Component {
   state = {
     movies: [],
     genres: [],
-    pageSize: 4,
+    pageSize: 5,
     currentPage: 1,
     sortColumn: { path: "title", order: "asc" },
     search: "",
-    selectGenre: null
+    selectGenre: null,
+    poster: null
   };
 
   componentDidMount() {
@@ -61,6 +64,12 @@ class Movies extends React.Component {
 
   handlePrevPage = currPage => {
     this.setState({ currentPage: currPage - 1 });
+  };
+  handleClick = movie => {
+    this.setState({ poster: movie.poster.props.src });
+  };
+  handleModalClose = () => {
+    this.setState({ poster: null });
   };
 
   getPageData = () => {
@@ -117,6 +126,7 @@ class Movies extends React.Component {
             onLike={this.handleLike}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
+            onClick={this.handleClick}
           />
           <Pagination
             nextPage={this.handleNextPage}
@@ -126,6 +136,9 @@ class Movies extends React.Component {
             pageSize={pageSize}
             currentPage={currentPage}
           />
+          <Modal show={this.state.poster} modalClose={this.handleModalClose}>
+            <Poster poster={this.state.poster} />
+          </Modal>
         </div>
       </div>
     );

@@ -1,146 +1,177 @@
+import React from "react";
 import * as genresAPI from "./fakeGenreService";
+import uuid from "uuid";
 
 const movies = [
   {
-    _id: "5b21ca3eeb7f6fbccd471815",
+    _id: uuid(),
     title: "Terminator",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 6,
     dailyRentalRate: 2.5,
-    publishDate: "2018-01-03T19:04:28.809Z"
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://images-na.ssl-images-amazon.com/images/I/A1wiVBc2VLL._SY550_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd471816",
+    _id: uuid(),
     title: "Die Hard",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 5,
-    dailyRentalRate: 2.5
+    dailyRentalRate: 2.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/919Tr2v5bML._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum  sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd471817",
+    _id: uuid(),
     title: "Get Out",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 8,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/A1JALctBEKL._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd471819",
+    _id: uuid(),
     title: "Trip to Italy",
     genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 7,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/91oOrAl368L._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd47181a",
+    _id: uuid(),
     title: "Airplane",
     genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 7,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/71NQMCMItUL._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd47181b",
+    _id: uuid(),
     title: "Wedding Crashers",
     genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 7,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/81uFUJUhJaL._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd47181e",
+    _id: uuid(),
     title: "Gone Girl",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 7,
-    dailyRentalRate: 4.5
+    dailyRentalRate: 4.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/91k5zTeb1mL._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd47181f",
+    _id: uuid(),
     title: "The Sixth Sense",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 4,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/711uZBBjIeL._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd471821",
+    _id: uuid(),
     title: "The Avengers",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 7,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/A1TbOVRiBRL._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
   {
-    _id: "5b21ca3eeb7f6fbccd471822",
+    _id: uuid(),
     title: "test 1",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471823",
-    title: "test 2",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471824",
-    title: "test 3",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471825",
-    title: "test 4",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471826",
-    title: "test 5",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471827",
-    title: "test 6",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471828",
-    title: "test 7",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471829",
-    title: "test 8",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd4718220",
-    title: "test 9",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd4718221",
-    title: "test 10",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd4718222",
-    title: "test 11",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
-    numberInStock: 7,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 3.5,
+    publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
+    poster: (
+      <img
+        style={{ width: "10%" }}
+        alt="default"
+        src="https://m.media-amazon.com/images/I/81ieAhLwR-L._AC_UL436_.jpg"
+      />
+    ),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   }
 ];
 

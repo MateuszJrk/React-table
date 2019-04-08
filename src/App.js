@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-2">
+        <div className="col-1">
           <Sidebar />
         </div>
         <div className="col">
@@ -29,6 +29,7 @@ class App extends Component {
               <Route path="/catalogs" component={Catalogs} />
               <Route path="/filters" component={Filters} />
               <Route path="/date" component={DatePicker} />
+
               <Route path="/notfound" component={notFound} />
               <Redirect from="/" exact to="/movies" />
               <Redirect to="/notfound" />
