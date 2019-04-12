@@ -17,6 +17,7 @@ const movies = [
         src="https://images-na.ssl-images-amazon.com/images/I/A1wiVBc2VLL._SY550_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -34,6 +35,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/919Tr2v5bML._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum  sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -51,6 +53,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/A1JALctBEKL._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -68,6 +71,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/91oOrAl368L._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -85,6 +89,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/71NQMCMItUL._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -102,6 +107,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/81uFUJUhJaL._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -119,6 +125,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/91k5zTeb1mL._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -136,6 +143,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/711uZBBjIeL._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -153,6 +161,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/A1TbOVRiBRL._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   },
@@ -170,6 +179,7 @@ const movies = [
         src="https://m.media-amazon.com/images/I/81ieAhLwR-L._AC_UL436_.jpg"
       />
     ),
+    liked: false,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus aspernatur maxime. Sapiente quae, dolor ratione, eveniet enim dicta exercitationem nam nostrum natus similique illum? Animi quod eaque ab hic."
   }
@@ -185,13 +195,13 @@ export function getMovie(id) {
 
 export function saveMovie(movie) {
   let movieInDb = movies.find(m => m._id === movie._id) || {};
-  movieInDb.name = movie.name;
+  movieInDb.title = movie.title;
   movieInDb.genre = genresAPI.genres.find(g => g._id === movie.genreId);
   movieInDb.numberInStock = movie.numberInStock;
   movieInDb.dailyRentalRate = movie.dailyRentalRate;
 
   if (!movieInDb._id) {
-    movieInDb._id = Date.now();
+    movieInDb._id = Date.now().toString();
     movies.push(movieInDb);
   }
 

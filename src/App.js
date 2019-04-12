@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import Sidebar from "./components/layout/Sidebar";
-import MovieForm from "./components/common/MovieFrom";
+import MovieForm from "./components/common/MovieForm";
 import Movies from "./components/Movies";
 import ThemeSettings from "./components/ThemeSettings";
 import Dashboard from "./components/Dashboard";

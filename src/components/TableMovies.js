@@ -35,6 +35,8 @@ class TableMovies extends Component {
       )
     },
     {
+      path: "liked",
+
       key: "like",
       content: movie => (
         <Like liked={movie.liked} onClick={() => this.props.onLike(movie)} />

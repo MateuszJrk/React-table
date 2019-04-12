@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import TableMovies from "./TableMovies";
 import Pagination from "./common/Pagination";
 import ListGroup from "./common/ListGroup";
 import Search from "./common/Search";
 import Modal from "./modal/Modal";
 import Poster from "./modal/Poster";
+import Favourites from "./Favourites";
 import { getMovies } from "../services/fakeMovieService";
 import { paginate } from "../utils/paginate";
 import { getGenres } from "../services/fakeGenreService";
@@ -19,12 +21,13 @@ class Movies extends React.Component {
     sortColumn: { path: "title", order: "asc" },
     search: "",
     selectGenre: null,
-    poster: null
+    poster: null,
+    liked: false,
+    favouriteMovies: []
   };
 
   componentDidMount() {
     const genres = [{ _id: "", name: "All Genres" }, ...getGenres()];
-
     this.setState({ movies: getMovies(), genres });
   }
 
@@ -38,17 +41,31 @@ class Movies extends React.Component {
   handleLike = movie => {
     const movies = [...this.state.movies]; //copy movies
     const index = movies.indexOf(movie); //index of clicked movie
-    movies[index] = { ...movies[index] }; // copy of clicked movie
+    movies[index] = { ...movies[index] }; // copy of clicked movies
+
     movies[index].liked = !movies[index].liked;
-    this.setState({ movies });
+
+    const favouriteMovies = [...this.state.favouriteMovies];
+
+    if (!favouriteMovies.includes(movie.title))
+      favouriteMovies.push(movie.title);
+
+    // Local Storage
+
+    localStorage.setItem("myFavouriteMovies", JSON.stringify(favouriteMovies));
+    this.setState({
+      movies,
+      liked: !this.state.liked,
+      favouriteMovies
+    });
   };
 
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
 
-  handleGenreSelect = genre => {
-    this.setState({ selectedGenre: genre, search: "", currentPage: 1 });
+  handleGenreSelect = (genre, like) => {
+    this.setState({ selectedGenre: genre, like, search: "", currentPage: 1 });
   };
   handleSearch = query => {
     this.setState({ search: query, selectedGenre: null, currentPage: 1 });
@@ -88,9 +105,7 @@ class Movies extends React.Component {
         m.title.toLowerCase().includes(search.toLowerCase())
       );
     else if (selectedGenre && selectedGenre._id)
-      // All genres don't have an _id
       filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
-
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
     const movies = paginate(sorted, currentPage, pageSize);
@@ -113,11 +128,18 @@ class Movies extends React.Component {
             items={this.state.genres}
             selectedItem={this.state.selectedGenre}
             onItemSelect={this.handleGenreSelect}
+            onLikeSelect={this.handleLikeSelect}
           />
         </div>
         <div className="col">
           <Search onChange={this.handleSearch} value={this.state.search} />
-
+          <Link
+            to="/movies/new"
+            className="btn btn-primary"
+            style={{ marginBottom: 20 }}
+          >
+            New Movie
+          </Link>
           <p>Showing {totalCount} movies from the database</p>
 
           <TableMovies
@@ -136,9 +158,11 @@ class Movies extends React.Component {
             pageSize={pageSize}
             currentPage={currentPage}
           />
+
           <Modal show={this.state.poster} modalClose={this.handleModalClose}>
             <Poster poster={this.state.poster} />
           </Modal>
+          <Favourites onLike={this.handleLike} data={this.state} />
         </div>
       </div>
     );
