@@ -7,6 +7,7 @@ import Search from "./common/Search";
 import Modal from "./modal/Modal";
 import Poster from "./modal/Poster";
 import Favourites from "./Favourites";
+import PageSize from "./common/PageSize";
 import { getMovies } from "../services/fakeMovieService";
 import { paginate } from "../utils/paginate";
 import { getGenres } from "../services/fakeGenreService";
@@ -16,7 +17,7 @@ class Movies extends React.Component {
   state = {
     movies: [],
     genres: [],
-    pageSize: 5,
+    pageSize: { value: 5 },
     currentPage: 1,
     sortColumn: { path: "title", order: "asc" },
     search: "",
@@ -49,15 +50,18 @@ class Movies extends React.Component {
 
     if (!favouriteMovies.includes(movie.title))
       favouriteMovies.push(movie.title);
-
+    let favourites = [];
+    if (!movie.liked) favourites.push(movie);
+    console.log(favourites);
     // Local Storage
-
     localStorage.setItem("myFavouriteMovies", JSON.stringify(favouriteMovies));
+
     this.setState({
       movies,
       liked: !this.state.liked,
       favouriteMovies
     });
+    console.log(favouriteMovies);
   };
 
   handlePageChange = page => {
@@ -74,9 +78,12 @@ class Movies extends React.Component {
   handleSort = sortColumn => {
     this.setState({ sortColumn });
   };
-  // TODO: CHANGE TO ONE FUNCTION
+
   handleNextPage = currPage => {
     this.setState({ currentPage: currPage + 1 });
+  };
+  handleSelect = e => {
+    this.setState({ pageSize: { value: e.target.value } });
   };
 
   handlePrevPage = currPage => {
@@ -108,7 +115,7 @@ class Movies extends React.Component {
       filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
-    const movies = paginate(sorted, currentPage, pageSize);
+    const movies = paginate(sorted, currentPage, pageSize.value);
 
     return { totalCount: sorted.length, data: movies };
   };
@@ -141,6 +148,10 @@ class Movies extends React.Component {
             New Movie
           </Link>
           <p>Showing {totalCount} movies from the database</p>
+          <PageSize
+            pageSize={this.state.pageSize}
+            onChange={this.handleSelect}
+          />
 
           <TableMovies
             movies={movies}

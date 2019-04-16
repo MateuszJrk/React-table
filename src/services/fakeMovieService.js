@@ -12,7 +12,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://images-na.ssl-images-amazon.com/images/I/A1wiVBc2VLL._SY550_.jpg"
       />
@@ -30,7 +30,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/919Tr2v5bML._AC_UL436_.jpg"
       />
@@ -48,7 +48,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/A1JALctBEKL._AC_UL436_.jpg"
       />
@@ -66,7 +66,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/91oOrAl368L._AC_UL436_.jpg"
       />
@@ -84,7 +84,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/71NQMCMItUL._AC_UL436_.jpg"
       />
@@ -102,7 +102,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/81uFUJUhJaL._AC_UL436_.jpg"
       />
@@ -120,7 +120,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/91k5zTeb1mL._AC_UL436_.jpg"
       />
@@ -138,7 +138,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/711uZBBjIeL._AC_UL436_.jpg"
       />
@@ -156,7 +156,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/A1TbOVRiBRL._AC_UL436_.jpg"
       />
@@ -174,7 +174,7 @@ const movies = [
     publishDate: `20${Math.floor(Math.random() * 100)}-01-04`,
     poster: (
       <img
-        style={{ width: "10%" }}
+        style={{ width: "40%" }}
         alt="default"
         src="https://m.media-amazon.com/images/I/81ieAhLwR-L._AC_UL436_.jpg"
       />

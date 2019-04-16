@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Table from "./common/Table";
+import Data from "./common/Table";
 import Like from "./common/Like";
-import Test from "./Test";
 
 class TableMovies extends Component {
+  state = { collapse: false };
+
+  toggle = () => {
+    this.setState(state => ({ collapse: !state.collapse }));
+  };
   columns = [
     {
       path: "title",
@@ -12,13 +16,10 @@ class TableMovies extends Component {
       content: movie => (
         <>
           <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
-          <Test
-            movie={movie.description}
-            onClick={() => this.props.onClick(movie)}
-          />
         </>
       )
     },
+
     { path: "genre.name", label: "Genre" },
     { path: "numberInStock", label: "Stock" },
     { path: "dailyRentalRate", label: "Rate" },
@@ -56,6 +57,18 @@ class TableMovies extends Component {
           Delete
         </button>
       )
+    },
+    {
+      key: "description",
+      content: movie => (
+        <div>
+          <i
+            className="fas fa-arrow-down"
+            style={{ padding: "5px" }}
+            onClick={() => this.toggle(movie)}
+          />
+        </div>
+      )
     }
   ];
 
@@ -63,11 +76,12 @@ class TableMovies extends Component {
     const { movies, onSort, sortColumn } = this.props;
 
     return (
-      <Table // reusable table
+      <Data // reusable table
         columns={this.columns}
         data={movies}
         sortColumn={sortColumn}
         onSort={onSort}
+        collapse={this.state.collapse}
       />
     );
   }

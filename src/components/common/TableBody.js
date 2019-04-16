@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uuid from "uuid";
 import _ from "lodash";
 
 class TableBody extends Component {
@@ -13,18 +14,27 @@ class TableBody extends Component {
   };
 
   render() {
-    const { data, columns } = this.props;
+    const { data, columns, collapse } = this.props;
+
     return (
       <tbody>
         {data.map(item => {
           return (
-            <tr key={item._id}>
-              {columns.map(column => (
-                <td key={this.createKey(item, column)}>
-                  {this.renderCell(item, column)}
-                </td>
-              ))}
-            </tr>
+            <>
+              <tr key={item._id}>
+                {columns.map(column => (
+                  <td
+                    style={{ width: "30%" }}
+                    key={this.createKey(item, column)}
+                  >
+                    {this.renderCell(item, column)}
+                  </td>
+                ))}
+              </tr>
+              <tr key={uuid()} style={{ display: "block" }}>
+                {collapse ? item.description : null}
+              </tr>
+            </>
           );
         })}
       </tbody>
